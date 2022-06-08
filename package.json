@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "fix": "npx eslint --fix ./src/*"
+    "fix": "npx eslint --fix ./src/**"
   },
   "keywords": [],
   "author": "",
