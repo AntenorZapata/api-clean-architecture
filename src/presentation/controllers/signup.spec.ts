@@ -2,6 +2,7 @@ import { SignupController } from './signup'
 import { MissingParamError } from '../errors/missing-params-errors'
 import { InvalidParamError } from '../errors/invalid-param-error'
 import { EmailValidator } from '../protocols/email-validator'
+import { ServerError } from '../errors/server-error'
 
 interface SutTypes {
   sut: SignupController
@@ -134,6 +135,7 @@ describe('Signup Controller', () => {
       }
     }
     const httpResponse = sut.handle(httpRequest)
-    // expect(httpResponse.statusCode).toThrow()
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(new ServerError())
   })
 })
